@@ -8,10 +8,16 @@ const cors = require("cors");
 const axios = require("axios");
 const { DB_HOST, DB_NAME, DB_PORT } = process.env;
 
-mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// Local Connection
+// mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
+
+// Online Connection
+mongoose.connect(
+  "mongodb://mongo:xwJ3FCQ4smQqeTLtDjZ6@containers-us-west-75.railway.app:6837"
+);
 
 app.use(cors());
 app.use(express.json());
